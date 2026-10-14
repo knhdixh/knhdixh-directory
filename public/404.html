@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Number Not Listed</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,600;1,500&family=Libre+Caslon+Text:ital@0;1&display=swap" rel="stylesheet">
+<style>
+  :root { --paper: #f3eee2; --ink: #1d1a16; --ink-soft: #57503f; --rule: #b9ad8f; --oxblood: #6e1f1f; --gilt: #94773a; }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) { --paper: #16130f; --ink: #ece4d0; --ink-soft: #a89d82; --rule: #4a4232; --oxblood: #c9776a; --gilt: #c4a463; }
+  }
+  :root[data-theme="dark"] { --paper: #16130f; --ink: #ece4d0; --ink-soft: #a89d82; --rule: #4a4232; --oxblood: #c9776a; --gilt: #c4a463; }
+  body {
+    margin: 0; min-height: 100vh;
+    display: grid; place-items: center;
+    background: var(--paper); color: var(--ink);
+    font-family: "Libre Caslon Text", Georgia, serif;
+    text-align: center; padding: 16px;
+  }
+  .card { max-width: 30em; border-top: 3px double var(--ink); border-bottom: 3px double var(--ink); padding: 36px 8px; }
+  .pre { font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: .35em; text-transform: uppercase; font-size: 13px; color: var(--ink-soft); margin: 0; }
+  h1 { font-family: "Cormorant Garamond", Georgia, serif; font-weight: 600; font-size: clamp(36px, 8vw, 56px); margin: 10px 0 12px; line-height: 1; }
+  h1 em { color: var(--oxblood); font-weight: 500; }
+  p.msg { font-style: italic; color: var(--ink-soft); margin: 0 0 24px; }
+  a { color: var(--oxblood); font-family: "Cormorant Garamond", Georgia, serif; letter-spacing: .25em; text-transform: uppercase; font-size: 14px; text-decoration: none; border-bottom: 1px solid var(--rule); padding-bottom: 2px; }
+  a:hover { border-color: var(--oxblood); }
+</style>
+</head>
+<body>
+  <div class="card">
+    <p class="pre">The Operator Regrets</p>
+    <h1>Number <em>Not Listed</em></h1>
+    <p class="msg">The party you have requested is not in this directory. Kindly consult the listings and try again.</p>
+    <a href="/">Return to the Directory</a>
+  </div>
+</body>
+</html>
