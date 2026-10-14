@@ -10,10 +10,10 @@ The homepage for **knhdixh.com**: an Apple-style grouped list of everything runn
 
 | Group | Name | Address | What it is |
 |---|---|---|---|
-| School | epita | [epita.knhdixh.com](https://epita.knhdixh.com) | Class attendance tracker |
-| School | classroom | [classroom.knhdixh.com](https://classroom.knhdixh.com) | Private French classroom ([ma-classe-prod](https://github.com/knhdixh/ma-classe-prod)) |
-| Health | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper plan |
-| Automation | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n |
+| Apps | epita | [epita.knhdixh.com](https://epita.knhdixh.com) | Class attendance tracker |
+| Apps | classroom | [classroom.knhdixh.com](https://classroom.knhdixh.com) | Private French classroom ([ma-classe-prod](https://github.com/knhdixh/ma-classe-prod)) |
+| Utils | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper plan |
+| Tooling | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n |
 | Staging | epita-staging | [epita-staging.knhdixh.com](https://epita-staging.knhdixh.com) | Staging copy of epita |
 
 One static HTML file, no build step. Puppertino's CSS (typography, colors, shadows, materials, lists) comes from `cdn.knhdixh.com`; it uses system fonts and follows the system light/dark setting. Entrances use one spring curve and animate only transform and opacity. The cursor trail is a small stable-fluids simulation in WebGL2 that sleeps a few seconds after the mouse stops, brightens on dark backgrounds, and is skipped for reduced-motion users or browsers without WebGL2.
