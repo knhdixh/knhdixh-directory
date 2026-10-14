@@ -3,386 +3,112 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>The Knhdixh Directory</title>
-<meta name="description" content="A private directory of the services and residences at knhdixh.com.">
+<title>knhdixh</title>
+<meta name="description" content="Things running at knhdixh.com.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500&display=swap" rel="stylesheet">
 <style>
-  :root {
-    --paper: #f3eee2;
-    --paper-edge: #e8e0cc;
-    --ink: #1d1a16;
-    --ink-soft: #57503f;
-    --rule: #b9ad8f;
-    --oxblood: #6e1f1f;
-    --gilt: #94773a;
-    --display: "Cormorant Garamond", "Didot", "Bodoni 72", Georgia, serif;
-    --text: "Libre Caslon Text", "Baskerville", Georgia, serif;
-  }
-  @media (prefers-color-scheme: dark) {
-    :root:not([data-theme="light"]) {
-      --paper: #16130f;
-      --paper-edge: #1f1b15;
-      --ink: #ece4d0;
-      --ink-soft: #a89d82;
-      --rule: #4a4232;
-      --oxblood: #c9776a;
-      --gilt: #c4a463;
-    }
-  }
-  :root[data-theme="dark"] {
-    --paper: #16130f;
-    --paper-edge: #1f1b15;
-    --ink: #ece4d0;
-    --ink-soft: #a89d82;
-    --rule: #4a4232;
-    --oxblood: #c9776a;
-    --gilt: #c4a463;
-  }
-
+  :root { --fg: #000; --muted: #8a8a8a; --bg: #fff; }
   * { box-sizing: border-box; }
-  html { -webkit-text-size-adjust: 100%; }
+  html, body { margin: 0; background: var(--bg); color: var(--fg); }
   body {
-    margin: 0;
-    background:
-      radial-gradient(ellipse at 50% 0%, transparent 55%, var(--paper-edge) 130%),
-      var(--paper);
-    color: var(--ink);
-    font-family: var(--text);
-    font-size: 16px;
-    line-height: 1.5;
-    font-variant-numeric: oldstyle-nums;
-    min-height: 100vh;
+    font: 400 15px/1.6 "Inter", system-ui, -apple-system, sans-serif;
+    letter-spacing: -0.005em;
+    -webkit-font-smoothing: antialiased;
   }
-  /* faint paper grain */
-  body::before {
-    content: "";
-    position: fixed; inset: 0;
-    pointer-events: none;
-    opacity: .07;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
-  }
-
-  .book {
-    max-width: 920px;
+  main {
+    max-width: 520px;
     margin: 0 auto;
-    padding: 56px 16px 72px;
+    padding: 22vh 24px 80px;
   }
+  h1 {
+    font-size: 15px; font-weight: 500;
+    margin: 0 0 48px;
+    min-height: 1.6em;
+  }
+  .cursor {
+    display: inline-block;
+    width: 1px; height: 1.1em;
+    margin-left: 2px;
+    background: var(--fg);
+    vertical-align: -0.18em;
+    animation: blink 1s steps(1) infinite;
+  }
+  @keyframes blink { 50% { opacity: 0; } }
 
-  /* ---------- running head ---------- */
-  .running {
-    display: flex; justify-content: space-between; gap: 12px;
-    font-family: var(--display);
-    font-size: 13px; letter-spacing: .22em; text-transform: uppercase;
-    color: var(--ink-soft);
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 8px;
+  ul { list-style: none; margin: 0; padding: 0; }
+  li {
+    opacity: 0;
+    transform: translateY(4px);
+    transition: opacity .6s ease, transform .6s ease;
   }
-
-  /* ---------- masthead ---------- */
-  header.mast {
-    text-align: center;
-    padding: 44px 0 30px;
-    border-bottom: 3px double var(--ink);
+  li.in { opacity: 1; transform: none; }
+  a {
+    display: flex; justify-content: space-between; gap: 24px;
+    padding: 10px 0;
+    color: var(--fg); text-decoration: none;
   }
-  .crest {
-    width: 54px; height: 54px; margin: 0 auto 14px;
-    color: var(--gilt);
+  a .name { position: relative; }
+  a .name::after {
+    content: ""; position: absolute; left: 0; right: 100%; bottom: 1px;
+    height: 1px; background: var(--fg);
+    transition: right .3s ease;
   }
-  .mast .pre {
-    font-family: var(--display);
-    font-size: 14px; letter-spacing: .4em; text-transform: uppercase;
-    color: var(--ink-soft);
-    margin: 0 0 6px;
-  }
-  .mast h1 {
-    font-family: var(--display);
-    font-weight: 600;
-    font-size: clamp(42px, 9vw, 84px);
-    line-height: .95;
-    letter-spacing: .02em;
-    margin: 0;
-  }
-  .mast h1 em { font-style: italic; font-weight: 500; color: var(--oxblood); }
-  .mast .sub {
-    font-style: italic;
-    color: var(--ink-soft);
-    margin: 16px auto 0;
-    max-width: 34em;
-  }
-  .ornament {
-    display: flex; align-items: center; gap: 14px;
-    justify-content: center;
-    margin-top: 22px;
-    color: var(--gilt);
-    font-family: var(--display); font-size: 13px; letter-spacing: .3em; text-transform: uppercase;
-  }
-  .ornament::before, .ornament::after {
-    content: ""; height: 1px; width: 70px; background: var(--rule);
-  }
-
-  /* ---------- operator ---------- */
-  .operator {
-    display: flex; align-items: baseline; gap: 14px;
-    margin: 28px 0 8px;
-    border-bottom: 1px solid var(--rule);
-    padding-bottom: 6px;
-  }
-  .operator label {
-    font-family: var(--display);
-    font-size: 14px; letter-spacing: .25em; text-transform: uppercase;
-    color: var(--ink-soft);
-    white-space: nowrap;
-  }
-  .operator input {
-    flex: 1; min-width: 0;
-    background: transparent; border: 0; outline: 0;
-    font: italic 18px var(--text);
-    color: var(--ink);
-  }
-  .operator input::placeholder { color: var(--ink-soft); opacity: .7; }
-
-  /* ---------- listings ---------- */
-  .listings {
-    columns: 2 320px;
-    column-gap: 56px;
-    column-rule: 1px solid var(--rule);
-    padding-top: 18px;
-  }
-  .letter {
-    break-inside: avoid;
-    margin-bottom: 26px;
-  }
-  .letter h2 {
-    display: flex; align-items: baseline; gap: 12px;
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 40px; line-height: 1;
-    margin: 0 0 10px;
-    color: var(--oxblood);
-  }
-  .letter h2 span {
-    font-size: 12px; font-weight: 600;
-    letter-spacing: .3em; text-transform: uppercase;
-    color: var(--ink-soft);
-  }
-
-  a.entry {
-    display: block;
-    color: inherit; text-decoration: none;
-    padding: 10px 10px 12px;
-    margin: 0 -10px;
-    border-top: 1px dotted var(--rule);
-    transition: background-color .2s ease;
-  }
-  a.entry:hover, a.entry:focus-visible {
-    background: color-mix(in srgb, var(--gilt) 9%, transparent);
-    outline: none;
-  }
-  .line {
-    display: flex; align-items: baseline; gap: 6px;
-  }
-  .name {
-    font-family: var(--display);
-    font-weight: 700;
-    font-size: 21px;
-    font-variant: small-caps;
-    letter-spacing: .03em;
-    white-space: nowrap;
-    overflow: hidden; text-overflow: ellipsis;
-  }
-  a.entry:hover .name, a.entry:focus-visible .name {
-    color: var(--oxblood);
-  }
-  .leader {
-    flex: 1; min-width: 24px;
-    border-bottom: 2px dotted var(--ink-soft);
-    opacity: .55;
-    transform: translateY(-5px);
-  }
-  .num {
-    font-variant-numeric: lining-nums tabular-nums;
-    font-size: 15px;
-    letter-spacing: .04em;
-    white-space: nowrap;
-  }
-  .num b { font-weight: 700; letter-spacing: .06em; }
-  .meta {
-    display: flex; justify-content: space-between; gap: 12px;
-    margin-top: 2px;
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-  .meta .desc { font-style: italic; }
-  .meta .addr {
-    white-space: nowrap;
-    font-size: 12.5px; letter-spacing: .05em;
-  }
-
-  .empty {
-    display: none;
-    font-style: italic; color: var(--ink-soft);
-    text-align: center; padding: 30px 0;
-  }
-
-  /* ---------- notices ---------- */
-  .notices {
-    margin-top: 34px;
-    border-top: 3px double var(--ink);
-    padding-top: 22px;
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-    gap: 22px 40px;
-    font-size: 14px;
-    color: var(--ink-soft);
-  }
-  .notices h3 {
-    font-family: var(--display);
-    font-size: 13px; letter-spacing: .28em; text-transform: uppercase;
-    color: var(--ink);
-    margin: 0 0 6px;
-  }
-  .notices p { margin: 0; }
+  a:hover .name::after, a:focus-visible .name::after { right: 0; }
+  a:focus-visible { outline: none; }
+  a .what { color: var(--muted); }
 
   footer {
-    margin-top: 40px;
-    text-align: center;
-    font-family: var(--display);
-    font-size: 13px; letter-spacing: .3em; text-transform: uppercase;
-    color: var(--ink-soft);
+    margin-top: 64px;
+    color: var(--muted);
+    opacity: 0; transition: opacity .8s ease;
   }
-  footer .fleuron { display: block; font-size: 22px; letter-spacing: 0; color: var(--gilt); margin-bottom: 8px; }
+  footer.in { opacity: 1; }
 
-  @media (max-width: 720px) {
-    .listings { columns: 1; }
-  }
-  @media (max-width: 520px) {
-    .book { padding-top: 32px; }
-    .running span:last-child { display: none; }
-    .running { font-size: 11px; letter-spacing: .16em; white-space: nowrap; }
-    .meta { flex-direction: column; gap: 0; }
-    .name { font-size: 19px; }
-  }
   @media (prefers-reduced-motion: reduce) {
-    * { transition: none !important; }
+    li, footer { transition: none; }
+    .cursor { animation: none; }
   }
 </style>
 </head>
 <body>
-<div class="book">
+<main>
+  <h1><span id="type"></span><span class="cursor" aria-hidden="true"></span></h1>
 
-  <div class="running">
-    <span>Private Exchange</span>
-    <span id="edition">Autumn Edition</span>
-    <span>Listings A–Z</span>
-  </div>
+  <ul>
+    <li><a href="https://epita.knhdixh.com"><span class="name">epita</span><span class="what">attendance</span></a></li>
+    <li><a href="https://epita-staging.knhdixh.com"><span class="name">epita-staging</span><span class="what">attendance, staging</span></a></li>
+    <li><a href="https://n8n.knhdixh.com"><span class="name">n8n</span><span class="what">automation</span></a></li>
+    <li><a href="https://ciggs.knhdixh.com"><span class="name">ciggs</span><span class="what">nicotine taper</span></a></li>
+  </ul>
 
-  <header class="mast">
-    <svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="1.4" aria-hidden="true">
-      <circle cx="32" cy="32" r="29"/>
-      <circle cx="32" cy="32" r="25" stroke-dasharray="1 3"/>
-      <text x="32" y="40" text-anchor="middle" font-family="Cormorant Garamond, Georgia, serif" font-size="24" font-style="italic" fill="currentColor" stroke="none">K</text>
-    </svg>
-    <p class="pre">The</p>
-    <h1>Knhdixh <em>Directory</em></h1>
-    <p class="sub">A private register of the residences, offices &amp; establishments kept at knhdixh.com. Select any listing to be connected directly.</p>
-    <div class="ornament">Est. MMXXVI</div>
-  </header>
-
-  <div class="operator">
-    <label for="q">Operator</label>
-    <input id="q" type="search" autocomplete="off" placeholder="Whom shall I ring?">
-  </div>
-
-  <main class="listings" id="listings">
-
-    <section class="letter">
-      <h2>A <span>Attendance</span></h2>
-      <a class="entry" href="https://epita.knhdixh.com" data-keys="attendance80 epita class school attendance">
-        <div class="line"><span class="name">Attendance80</span><span class="leader"></span><span class="num"><b>EPita</b> 4-8200</span></div>
-        <div class="meta"><span class="desc">Ledger of class attendance, EPITA</span><span class="addr">epita.knhdixh.com</span></div>
-      </a>
-      <a class="entry" href="https://epita-staging.knhdixh.com" data-keys="attendance80 epita staging rehearsal">
-        <div class="line"><span class="name">Attendance80 Rehearsal</span><span class="leader"></span><span class="num"><b>EPita</b> 4-8201</span></div>
-        <div class="meta"><span class="desc">Staging premises, by appointment</span><span class="addr">epita-staging.knhdixh.com</span></div>
-      </a>
-    </section>
-
-    <section class="letter">
-      <h2>N <span>Nicotine &amp; n8n</span></h2>
-      <a class="entry" href="https://n8n.knhdixh.com" data-keys="n8n workflow automation">
-        <div class="line"><span class="name">n8n Workflow Bureau</span><span class="leader"></span><span class="num"><b>N8n</b> 6-0800</span></div>
-        <div class="meta"><span class="desc">Automation &amp; correspondence services</span><span class="addr">n8n.knhdixh.com</span></div>
-      </a>
-      <a class="entry" href="https://ciggs.knhdixh.com" data-keys="nicotine taper ciggs cigarettes vape smoking">
-        <div class="line"><span class="name">Nicotine Taper</span><span class="leader"></span><span class="num"><b>CIggs</b> 4-4700</span></div>
-        <div class="meta"><span class="desc">A measured step-down, to nought milligrams</span><span class="addr">ciggs.knhdixh.com</span></div>
-      </a>
-    </section>
-
-  </main>
-  <p class="empty" id="empty">The operator regrets: no such party is listed.</p>
-
-  <section class="notices">
-    <div>
-      <h3>Correspondence</h3>
-      <p>Post for the household is received at this address through the iCloud mail service.</p>
-    </div>
-    <div>
-      <h3>Unlisted Numbers</h3>
-      <p>Further private lines are kept at *.knhdixh.com and are furnished upon request only.</p>
-    </div>
-    <div>
-      <h3>To Place a Call</h3>
-      <p>Select a listing, or address the operator above. Keys <em>1</em> through <em>4</em> ring the listings in order.</p>
-    </div>
-  </section>
-
-  <footer>
-    <span class="fleuron">❦</span>
-    knhdixh.com &middot; Printed in New York
-  </footer>
-</div>
+  <footer>knhdixh.com</footer>
+</main>
 
 <script>
   (function () {
-    var seasons = ["Winter", "Winter", "Spring", "Spring", "Spring", "Summer", "Summer", "Summer", "Autumn", "Autumn", "Autumn", "Winter"];
-    var d = new Date();
-    document.getElementById("edition").textContent = seasons[d.getMonth()] + " Edition, " + d.getFullYear();
+    var text = "knhdixh";
+    var el = document.getElementById("type");
+    var items = document.querySelectorAll("li");
+    var footer = document.querySelector("footer");
+    var reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-    var entries = Array.prototype.slice.call(document.querySelectorAll("a.entry"));
-    var q = document.getElementById("q");
-    var empty = document.getElementById("empty");
-
-    q.addEventListener("input", function () {
-      var term = q.value.trim().toLowerCase();
-      var shown = 0;
-      entries.forEach(function (a) {
-        var hay = (a.textContent + " " + a.dataset.keys).toLowerCase();
-        var hit = !term || hay.indexOf(term) !== -1;
-        a.style.display = hit ? "" : "none";
-        if (hit) shown++;
+    function reveal() {
+      items.forEach(function (li, i) {
+        setTimeout(function () { li.classList.add("in"); }, reduced ? 0 : 120 * i);
       });
-      document.querySelectorAll(".letter").forEach(function (s) {
-        var any = s.querySelector("a.entry:not([style*='none'])");
-        s.style.display = any ? "" : "none";
-      });
-      empty.style.display = shown ? "none" : "block";
-    });
-    q.addEventListener("keydown", function (e) {
-      if (e.key === "Enter") {
-        var first = entries.filter(function (a) { return a.style.display !== "none"; })[0];
-        if (first) window.location.href = first.href;
-      }
-    });
+      setTimeout(function () { footer.classList.add("in"); }, reduced ? 0 : 120 * items.length + 200);
+    }
 
-    document.addEventListener("keydown", function (e) {
-      if (document.activeElement === q || e.metaKey || e.ctrlKey || e.altKey) return;
-      var n = parseInt(e.key, 10);
-      if (n >= 1 && n <= entries.length) window.location.href = entries[n - 1].href;
-    });
+    if (reduced) { el.textContent = text; reveal(); return; }
 
+    var i = 0;
+    setTimeout(function tick() {
+      el.textContent = text.slice(0, ++i);
+      if (i < text.length) setTimeout(tick, 70 + Math.random() * 70);
+      else setTimeout(reveal, 300);
+    }, 500);
   })();
 </script>
 </body>
