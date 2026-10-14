@@ -8,13 +8,13 @@ The homepage for **knhdixh.com**: an Apple-style grouped list of everything runn
 
 ## Listings
 
-| Name | Address | What it is |
-|---|---|---|
-| epita | [epita.knhdixh.com](https://epita.knhdixh.com) | Class attendance tracker |
-| epita-staging | [epita-staging.knhdixh.com](https://epita-staging.knhdixh.com) | Staging copy of the above |
-| classroom | [classroom.knhdixh.com](https://classroom.knhdixh.com) | Private French classroom ([ma-classe-prod](https://github.com/knhdixh/ma-classe-prod)) |
-| n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n automation |
-| ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper |
+| Group | Name | Address | What it is |
+|---|---|---|---|
+| School | epita | [epita.knhdixh.com](https://epita.knhdixh.com) | Class attendance tracker |
+| School | classroom | [classroom.knhdixh.com](https://classroom.knhdixh.com) | Private French classroom ([ma-classe-prod](https://github.com/knhdixh/ma-classe-prod)) |
+| Health | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper plan |
+| Automation | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n |
+| Staging | epita-staging | [epita-staging.knhdixh.com](https://epita-staging.knhdixh.com) | Staging copy of epita |
 
 One static HTML file, no build step. Puppertino's CSS (typography, colors, shadows, materials, lists) comes from `cdn.knhdixh.com`; it uses system fonts and follows the system light/dark setting. Entrances use one spring curve and animate only transform and opacity. The cursor trail is a small stable-fluids simulation in WebGL2 that sleeps a few seconds after the mouse stops, brightens on dark backgrounds, and is skipped for reduced-motion users or browsers without WebGL2.
 
@@ -37,7 +37,7 @@ Every push to `main` deploys automatically through Cloudflare Workers Builds (ab
 npm run deploy
 ```
 
-To add a listing, copy an `<li>` in [`public/index.html`](public/index.html).
+To add a listing, copy an `<a class="p-list-row">` into the right group in [`public/index.html`](public/index.html), or add a new `<section>` for a new group.
 
 ## Style
 
