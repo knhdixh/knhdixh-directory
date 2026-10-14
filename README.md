@@ -2,7 +2,7 @@
 
 A homepage for **knhdixh.com**, set like an old New York telephone directory. It lists every service on the domain; click a listing to go to it.
 
-**Live:** https://knhdixh-directory.sieubadaokhanh04.workers.dev (knhdixh.com once the domain is attached)
+**Live:** https://knhdixh.com
 
 ![The Knhdixh Directory](docs/screenshot.png)
 
