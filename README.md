@@ -1,6 +1,6 @@
 # knhdixh
 
-A minimal homepage for **knhdixh.com**: black on white, a typed heading with a blinking cursor, and a list of everything running on the domain.
+A minimal homepage for **knhdixh.com**: black on white, with a scrambled, masked heading reveal, a blinking cursor, and a blue WebGL water trail that follows the mouse.
 
 **Live:** https://knhdixh.com
 
@@ -15,7 +15,7 @@ A minimal homepage for **knhdixh.com**: black on white, a typed heading with a b
 | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n automation |
 | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper |
 
-One static HTML file, no build step, no framework. Respects reduced-motion settings.
+One static HTML file, no build step, no libraries. The cursor trail is a small stable-fluids simulation (advection, curl, pressure solve) in WebGL2. It sleeps a few seconds after the mouse stops, and is skipped entirely for reduced-motion users or browsers without WebGL2.
 
 ## Stack
 
