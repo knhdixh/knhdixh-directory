@@ -7,7 +7,8 @@
     "not_found_handling": "404-page"
   },
   "routes": [
-    { "pattern": "knhdixh.com", "custom_domain": true }
+    { "pattern": "knhdixh.com", "custom_domain": true },
+    { "pattern": "www.knhdixh.com", "custom_domain": true }
   ],
   "workers_dev": true,
   "preview_urls": false,
