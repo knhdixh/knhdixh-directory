@@ -37,3 +37,7 @@ npm run deploy
 ```
 
 To add a listing, copy an `<li>` in [`public/index.html`](public/index.html).
+
+## Style
+
+This site is the reference for the house style used across knhdixh.com. See the [knhdixh cookbook](docs/knhdixh-cookbook.md) ([gist](https://gist.github.com/knhdixh/848f66f3b777da8428bfe5bb9503cc66)).
