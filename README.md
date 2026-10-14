@@ -1,6 +1,6 @@
 # knhdixh
 
-A minimal homepage for **knhdixh.com**: black on white, with a scrambled, masked heading reveal, a blinking cursor, and a blue WebGL water trail that follows the mouse.
+The homepage for **knhdixh.com**: an Apple-style grouped list of everything running on the domain, built with [Puppertino](https://puppertino.com), with a blue WebGL water trail behind it.
 
 **Live:** https://knhdixh.com
 
@@ -15,7 +15,7 @@ A minimal homepage for **knhdixh.com**: black on white, with a scrambled, masked
 | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n automation |
 | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper |
 
-One static HTML file, no build step, no libraries. The cursor trail is a small stable-fluids simulation (advection, curl, pressure solve) in WebGL2. It sleeps a few seconds after the mouse stops, and is skipped entirely for reduced-motion users or browsers without WebGL2.
+One static HTML file, no build step. Puppertino's CSS (typography, colors, shadows, materials, lists) comes from `cdn.knhdixh.com`; it uses system fonts and follows the system light/dark setting. Entrances use one spring curve and animate only transform and opacity. The cursor trail is a small stable-fluids simulation in WebGL2 that sleeps a few seconds after the mouse stops, brightens on dark backgrounds, and is skipped for reduced-motion users or browsers without WebGL2.
 
 ## Stack
 
@@ -40,4 +40,4 @@ To add a listing, copy an `<li>` in [`public/index.html`](public/index.html).
 
 ## Style
 
-This site is the reference for the house style used across knhdixh.com. See the [knhdixh cookbook](docs/knhdixh-cookbook.md) ([gist](https://gist.github.com/knhdixh/848f66f3b777da8428bfe5bb9503cc66)).
+This page uses Puppertino by explicit choice. Other knhdixh.com sites follow the [knhdixh cookbook](docs/knhdixh-cookbook.md) by default; its reference implementation is [`docs/template.html`](docs/template.html) ([gist](https://gist.github.com/knhdixh/848f66f3b777da8428bfe5bb9503cc66)).
