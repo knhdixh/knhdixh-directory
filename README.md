@@ -37,6 +37,8 @@ npm run dev        # http://localhost:8787
 
 ## Deploy
 
+Every push to `main` deploys automatically through Cloudflare Workers Builds (about 30 seconds). To deploy by hand:
+
 ```bash
 npm run deploy
 ```
