@@ -12,6 +12,7 @@ The homepage for **knhdixh.com**: an Apple-style grouped list of everything runn
 |---|---|---|
 | epita | [epita.knhdixh.com](https://epita.knhdixh.com) | Class attendance tracker |
 | epita-staging | [epita-staging.knhdixh.com](https://epita-staging.knhdixh.com) | Staging copy of the above |
+| classroom | [classroom.knhdixh.com](https://classroom.knhdixh.com) | Private French classroom ([ma-classe-prod](https://github.com/knhdixh/ma-classe-prod)) |
 | n8n | [n8n.knhdixh.com](https://n8n.knhdixh.com) | Self-hosted n8n automation |
 | ciggs | [ciggs.knhdixh.com](https://ciggs.knhdixh.com) | Nicotine taper |
 
