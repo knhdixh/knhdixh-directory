@@ -114,7 +114,7 @@
 <main id="page">
   <header>
     <h1 id="title" aria-label="knhdixh">knhdixh</h1>
-    <p class="lede rise" style="--d:420ms">Projects and services.</p>
+    <p class="lede rise" style="--d:420ms">Time in Paris: <span id="paris-time" style="font-variant-numeric: tabular-nums">--:--:--</span></p>
   </header>
 
   <section class="rise" style="--d:520ms">
@@ -173,6 +173,17 @@
 /* ---------- entrance ---------- */
 (function () {
   document.getElementById("year").textContent = new Date().getFullYear();
+
+  var parisEl = document.getElementById("paris-time");
+  var parisClock = new Intl.DateTimeFormat("en-US", { timeZone: "Europe/Paris", hour: "2-digit", minute: "2-digit", second: "2-digit", hour12: true });
+  var parisZone = new Intl.DateTimeFormat("en-GB", { timeZone: "Europe/Paris", timeZoneName: "short" });
+  function tickParis() {
+    var now = new Date();
+    var zone = parisZone.formatToParts(now).find(function (p) { return p.type === "timeZoneName"; }).value;
+    parisEl.textContent = parisClock.format(now) + " " + zone;
+    setTimeout(tickParis, 1000 - (Date.now() % 1000));
+  }
+  tickParis();
 
   var title = document.getElementById("title");
   var word = title.textContent;
